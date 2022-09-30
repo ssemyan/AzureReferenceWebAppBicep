@@ -98,9 +98,9 @@ There are two aspects to security - connectivity and access. Connectivity is man
 
 Service | Access | Authorization
 --- | --- | ---
-Website | Restricted to only allow access via the public IP address of the App Gateway. Integrated with the VNET containing the Private Links for Storage and the Database | Each website (UI and Admin) has its own user-managed identity. This identity is then given access to the storage accounts and database as described below. 
-Storage | Access via Private Link or (for dev environment) IP restrictions (devs need to whitelist their IP addresses for access). In production, access will be via Private Link ONLY. | For the app, blob creation access is provided via a custom role. The managed identity is assigned to this role at the storage account level. The Admin sites do not have access to the storage account.
-Database | Access via Private Link or (for dev environment) IP restrictions (devs need to whitelist their IP addresses for access). In production, access will be via Private Link ONLY. | Access to the DB is done by running the script in the *Azure SQL Access* section above.
+Website | Restricted to only allow access via the public IP address of the App Gateway. Integrated with the VNET containing the Private Links for Storage and the Database | The app service user-managed identity is given access to the storage accounts and database as described below. 
+Storage | Access via Private Link or (for dev environment) IP restrictions (devs need to whitelist their IP addresses for access). In production, access should be via Private Link ONLY. | For the app, blob creation access is provided via a custom role. The managed identity is assigned to this role at the storage account level.
+Database | Access via Private Link or (for dev environment) IP restrictions (devs need to whitelist their IP addresses for access). In production, access should be via Private Link ONLY. | Access to the DB is done by running the script in the *Azure SQL Access* section above.
 
 # Deletion of deployment
 There is a Bash script *deleteDeploy.sh* which allows for programmatic deletion of resources. Use with care. 
